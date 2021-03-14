@@ -55,11 +55,13 @@ $("#15").children("textarea").val(localStorage.getItem("15"));
 $("#16").children("textarea").val(localStorage.getItem("16"));
 $("#17").children("textarea").val(localStorage.getItem("17"));
 
-$(".newDay").on("click", function clearInputFields(){
-var currentBtn = $(this);
-
-localStorage.clear();
-})
+$(".newDay").on("click", function (event) {
+  event.preventDefault(); //cancels page refresh
+  $("textarea").each(function () { //textarea works like the button so we want to loop through each individual textarea and clear each individual value attribute
+    $(this).val("");
+  });
+  localStorage.clear(); // clears textarea out
+});
 
 displayTime(); //makes above function happen as soon as page opens
 
