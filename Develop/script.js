@@ -55,6 +55,12 @@ $("#15").children("textarea").val(localStorage.getItem("15"));
 $("#16").children("textarea").val(localStorage.getItem("16"));
 $("#17").children("textarea").val(localStorage.getItem("17"));
 
+$(".newDay").on("click", function clearInputFields(){
+var currentBtn = $(this);
+
+localStorage.clear();
+})
+
 displayTime(); //makes above function happen as soon as page opens
 
 
