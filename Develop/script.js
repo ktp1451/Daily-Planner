@@ -45,15 +45,15 @@ $(".time-block").each(function() {
 });
 
 //stores data entered in the textarea to local storage so it stays even the user refreshes the page
-$("#9").children("textarea").val(localStorage.getItem("#9"));
-$("#10").children("textarea").val(localStorage.getItem("#10"));
-$("#11").children("textarea").val(localStorage.getItem("#11"));
-$("#12").children("textarea").val(localStorage.getItem("#12"));
-$("#1").children("textarea").val(localStorage.getItem("#1"));
-$("#2").children("textarea").val(localStorage.getItem("#2"));
-$("#3").children("textarea").val(localStorage.getItem("#3"));
-$("#4").children("textarea").val(localStorage.getItem("#4"));
-$("#5").children("textarea").val(localStorage.getItem("#5"));
+$("#9").children("textarea").val(localStorage.getItem("9"));
+$("#10").children("textarea").val(localStorage.getItem("10"));
+$("#11").children("textarea").val(localStorage.getItem("11"));
+$("#12").children("textarea").val(localStorage.getItem("12"));
+$("#13").children("textarea").val(localStorage.getItem("13"));
+$("#14").children("textarea").val(localStorage.getItem("14"));
+$("#15").children("textarea").val(localStorage.getItem("15"));
+$("#16").children("textarea").val(localStorage.getItem("16"));
+$("#17").children("textarea").val(localStorage.getItem("17"));
 
 displayTime(); //makes above function happen as soon as page opens
 
