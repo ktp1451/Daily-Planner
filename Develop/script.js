@@ -6,7 +6,7 @@ var timeDisplayEl = $('#time-display'); //JQurey storing reference to id=timedis
 
 //function to display current date and time
 function displayTime() {
-  var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a'); //created variable rightNow, then used moment library to grab the time and then format the time as it's written in the ( )
+  var rightNow = moment().format('MMM DD, YYYY'); //created variable rightNow, then used moment library to grab the time and then format the time as it's written in the ( )
   console.log(rightNow);
   timeDisplayEl.text(rightNow); //updates var text
 }
@@ -15,7 +15,7 @@ function displayTime() {
 $(".saveBtn").on("click", function(){
   var currentBtn = $(this);
 
-  var textarea = currentBtn.siblings("notes");
+  var textarea = currentBtn.prev();
 
   var time = currentBtn.parent().attr("id");
 
@@ -26,38 +26,34 @@ $(".saveBtn").on("click", function(){
 //document.getElementsByClassName("saveBtn").addEventlistener
 
 //can loop throug elements with same tag name with "each" method with JQurey
-$("textarea").each(function() {
-  let currentArea = $(this);
+$(".time-block").each(function() {
+  //let currentArea = $(this);
   let currentHour = moment().hours();
   
-  let time = currentArea.parent().attr("id");
+  let time = $(this).attr("id");
 
-  //console.log(time, currentHour);
+  //console.log(time, currentHour)
 
+  //
   if (time < currentHour) {
-    currentArea.addClass("past");
-    currentArea.removeClass("present");
-    currentArea.removeClass("future");
+    $(this).children().eq(1).addClass("past");
   } else if (time > currentHour) {
-    currentArea.addClass("future");
-    currentArea.removeClass("past");
-    currentArea.removeClass("present");
+    $(this).children().eq(1).addClass("future");
   } else {
-    currentArea.addClass("present");
-    currentArea.removeClass("future");
-    currentArea.removeClass("past");
+    $(this).children().eq(1).addClass("present");
   }
 });
 
-$("#9").children("textarea").val(localStorage.getItem('9'));
-$("#10").children("textarea").val(localStorage.getItem('9'));
-$("#11").children("textarea").val(localStorage.getItem('9'));
-$("#12").children("textarea").val(localStorage.getItem('9'));
-$("#1").children("textarea").val(localStorage.getItem('9'));
-$("#2").children("textarea").val(localStorage.getItem('9'));
-$("#3").children("textarea").val(localStorage.getItem('9'));
-$("#4").children("textarea").val(localStorage.getItem('9'));
-$("#5").children("textarea").val(localStorage.getItem('9'));
+//stores data entered in the textarea to local storage so it stays even the user refreshes the page
+$("#9").children("textarea").val(localStorage.getItem("#9"));
+$("#10").children("textarea").val(localStorage.getItem("#10"));
+$("#11").children("textarea").val(localStorage.getItem("#11"));
+$("#12").children("textarea").val(localStorage.getItem("#12"));
+$("#1").children("textarea").val(localStorage.getItem("#1"));
+$("#2").children("textarea").val(localStorage.getItem("#2"));
+$("#3").children("textarea").val(localStorage.getItem("#3"));
+$("#4").children("textarea").val(localStorage.getItem("#4"));
+$("#5").children("textarea").val(localStorage.getItem("#5"));
 
 displayTime(); //makes above function happen as soon as page opens
 
